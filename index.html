@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pankaj Band | Official Website</title>
+    <!-- Google Fonts: 'Rock Salt' for headers, 'Montserrat' for body --><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Rock+Salt&display=swap" rel="stylesheet">
+    <!-- Font Awesome --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --bg-dark: #0f0f0f;
+            --bg-panel: #1a1a1a;
+            --accent-cyan: #00f3ff;
+            --accent-pink: #ff0055;
+            --text-white: #ffffff;
+            --text-gray: #b3b3b3;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-white);
+            transition: 0.3s;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Rock Salt', cursive;
+            text-transform: uppercase;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* 1. HEADER & NAV */
+        header {
+            background-color: rgba(15, 15, 15, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            color: var(--accent-cyan);
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin-left: 30px;
+        }
+
+        nav a:hover {
+            color: var(--accent-pink);
+            text-shadow: 0 0 8px rgba(255, 0, 85, 0.6);
+        }
+
+        /* 2. HERO SECTION */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://image.pollinations.ai/prompt/synthwave%20concert%20crowd%20dark,%20neon%20lights,%20rock%20band,%20digital%20art') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            color: var(--text-white);
+            text-shadow: 3px 3px 0px var(--accent-pink), -3px -3px 0px var(--accent-cyan);
+            animation: pulse 2s infinite alternate;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            letter-spacing: 3px;
+        }
+
+        .btn-glitch {
+            padding: 15px 40px;
+            background: transparent;
+            border: 2px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .btn-glitch:hover {
+            background: var(--accent-cyan);
+            color: var(--bg-dark);
+            box-shadow: 0 0 20px var(--accent-cyan);
+        }
+
+        /* 3. MUSIC PLAYER */
+        #music {
+            background-color: var(--bg-panel);
+        }
+
+        .album-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .album-art {
+            width: 350px;
+            height: 350px;
+            background: url('https://image.pollinations.ai/prompt/synthwave%20album%20art%20cyberpunk%20heart%20neon%20colors') center/cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid #333;
+        }
+
+        .track-list {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        .track {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #333;
+            transition: 0.3s;
+        }
+
+        .track:hover {
+            background-color: #252525;
+            padding-left: 20px;
+        }
+
+        .play-btn {
+            background: none;
+            border: 1px solid var(--text-white);
+            color: var(--text-white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .play-btn:hover {
+            border-color: var(--accent-pink);
+            color: var(--accent-pink);
+        }
+
+        /* 4. TOUR DATES */
+        .tour-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 40px;
+        }
+
+        .tour-table th {
+            text-align: left;
+            color: var(--accent-cyan);
+            padding: 20px;
+            border-bottom: 2px solid var(--accent-cyan);
+            font-size: 1.2rem;
+        }
+
+        .tour-table td {
+            padding: 20px;
+            border-bottom: 1px solid #333;
+            color: var(--text-gray);
+        }
+
+        .tour-table tr:hover td {
+            color: var(--text-white);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .ticket-btn {
+            background-color: var(--accent-pink);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        /* 5. MERCH STORE */
+        #merch {
+            background-color: var(--bg-panel);
+        }
+
+        .merch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--bg-dark);
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #333;
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-cyan);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            color: var(--accent-cyan);
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: block;
+            margin: 10px 0;
+        }
+
+        /* 6. GALLERY */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 200px;
+            gap: 10px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        /* Make some items span 2 columns or rows for masonry look */
+        .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+        .gallery-item:nth-child(4) { grid-column: span 2; }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+            filter: grayscale(100%);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+            filter: grayscale(0%);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: black;
+            padding: 50px 0;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        .social-icons {
+            margin-bottom: 20px;
+        }
+
+        .social-icons a {
+            font-size: 1.5rem;
+            margin: 0 15px;
+            color: var(--text-gray);
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-cyan);
+        }
+
+        @keyframes pulse {
+            from { text-shadow: 3px 3px 0px var(--accent-pink), -3px -3px 0px var(--accent-cyan); }
+            to { text-shadow: 5px 5px 0px var(--accent-pink), -5px -5px 0px var(--accent-cyan); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3rem; }
+            .navbar { flex-direction: column; gap: 20px; }
+            nav ul { flex-wrap: wrap; justify-content: center; }
+            nav li { margin: 5px 15px; }
+            .gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 250px; }
+            .gallery-item:nth-child(1), .gallery-item:nth-child(4) { grid-column: span 1; grid-row: span 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV --><header>
+        <div class="container navbar">
+            <a href="#" class="logo">PANKAJ BAND</a>
+            <nav>
+                <ul>
+                    <li><a href="#music">Music</a></li>
+                    <li><a href="#tour">Tour</a></li>
+                    <li><a href="#merch">Merch</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO --><section class="hero">
+        <h1>Pankaj Band</h1>
+        <p>FEATURING THE NEW SOUNDS OF "ACOUSTIC NIGHT"</p>
+        <button class="btn-glitch" onclick="scrollToMusic()">Listen Now</button>
+    </section>
+
+    <!-- MUSIC PLAYER --><section id="music">
+        <div class="container">
+            <h2 style="text-align: center; color: var(--accent-cyan); margin-bottom: 50px;">Latest Tracks</h2>
+            
+            <div class="album-container">
+                <div class="album-art"></div>
+                
+                <div class="track-list">
+                    <!-- Audio Element (Hidden) - In a real site, src would be .mp3 --><audio id="audio1" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+                    <audio id="audio2" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"></audio>
+                    <audio id="audio3" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"></audio>
+
+                    <div class="track">
+                        <div>
+                            <h4>Acoustic Night (Live)</h4>
+                            <small>3:45</small>
+                        </div>
+                        <button class="play-btn" onclick="playTrack('audio1', this)"><i class="fas fa-play"></i></button>
+                    </div>
+
+                    <div class="track">
+                        <div>
+                            <h4>Crossroad Serenade</h4>
+                            <small>4:12</small>
+                        </div>
+                        <button class="play-btn" onclick="playTrack('audio2', this)"><i class="fas fa-play"></i></button>
+                    </div>
+
+                    <div class="track">
+                        <div>
+                            <h4>Melody of Monsoon</h4>
+                            <small>2:58</small>
+                        </div>
+                        <button class="play-btn" onclick="playTrack('audio3', this)"><i class="fas fa-play"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TOUR DATES --><section id="tour">
+        <div class="container">
+            <h2 style="text-align: center; color: var(--accent-pink); margin-bottom: 50px;">Upcoming Gigs</h2>
+            
+            <table class="tour-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Venue</th>
+                        <th>Location</th>
+                        <th>Tickets</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nov 18</td>
+                        <td>The Blue Note</td>
+                        <td>Mumbai, India</td>
+                        <td><a href="#" class="ticket-btn">Sold Out</a></td>
+                    </tr>
+                    <tr>
+                        <td>Dec 02</td>
+                        <td>Jazz Cafe</td>
+                        <td>Delhi, India</td>
+                        <td><a href="#" class="ticket-btn">Buy Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>Dec 10</td>
+                        <td>The Groovy Spot</td>
+                        <td>Bengaluru, India</td>
+                        <td><a href="#" class="ticket-btn">Buy Now</a></td>
+                    </tr>
+                    <tr>
+                        <td>Jan 05</td>
+                        <td>Skyline Music Hall</td>
+                        <td>Chandoli, India</td>
+                        <td><a href="#" class="ticket-btn">Buy Now</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- MERCH STORE --><section id="merch">
+        <div class="container">
+            <h2 style="text-align: center; color: var(--accent-cyan); margin-bottom: 50px;">Official Merch</h2>
+            
+            <div class="merch-grid">
+                <div class="product-card">
+                    <img src="https://image.pollinations.ai/prompt/band%20t-shirt%20design%20acoustic%20guitar%20minimalist%20black%20and%20white" alt="T-Shirt" class="product-img">
+                    <h3>Acoustic Tee</h3>
+                    <span class="price">₹799</span>
+                    <button class="btn-glitch" style="padding: 10px 20px; font-size: 0.8rem;" onclick="addToCart()">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://image.pollinations.ai/prompt/band%20logo%20coffee%20mug%20minimalist%20design%20black" alt="Coffee Mug" class="product-img">
+                    <h3>Band Logo Mug</h3>
+                    <span class="price">₹349</span>
+                    <button class="btn-glitch" style="padding: 10px 20px; font-size: 0.8rem;" onclick="addToCart()">Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://image.pollinations.ai/prompt/band%20hoodie%20design%20back%20print%20concert%20date%20black" alt="Hoodie" class="product-img">
+                    <h3>Tour Hoodie 2025</h3>
+                    <span class="price">₹1499</span>
+                    <button class="btn-glitch" style="padding: 10px 20px; font-size: 0.8rem;" onclick="addToCart()">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY --><section id="gallery">
+        <div class="container">
+            <h2 style="text-align: center; color: var(--text-white); margin-bottom: 50px;">Our Moments</h2>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://image.pollinations.ai/prompt/band%20on%20stage%20live%20performance%20crowd%20lights" alt="Live Performance">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://image.pollinations.ai/prompt/band%20member%20close-up%20guitarist%20singer%20black%20and%20white" alt="Band Member Portrait">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://image.pollinations.ai/prompt/band%20members%20posing%20together%20urban%20setting%20grunge%20style" alt="Band Group Shot">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://image.pollinations.ai/prompt/audience%20cheering%20at%20concert%20vibrant%20lights" alt="Cheering Crowd">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://image.pollinations.ai/prompt/music%20studio%20recording%20session%20band%20members%20recording" alt="Studio Session">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER --><footer>
+        <div class="container">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-spotify"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2025 Pankaj Band. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JS --><script>
+        // Scroll function
+        function scrollToMusic() {
+            document.getElementById('music').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Cart function
+        function addToCart() {
+            alert("Item added to your cart!");
+        }
+
+        // Music Player Logic
+        let currentAudio = null;
+        let currentBtn = null;
+
+        function playTrack(audioId, btn) {
+            const audio = document.getElementById(audioId);
+            const icon = btn.querySelector('i');
+
+            // If clicking the same track that is playing
+            if (currentAudio === audio && !audio.paused) {
+                audio.pause();
+                icon.classList.remove('fa-pause');
+                icon.classList.add('fa-play');
+                return;
+            }
+
+            // Stop currently playing track if exists
+            if (currentAudio && currentAudio !== audio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+                if(currentBtn) {
+                    currentBtn.querySelector('i').classList.remove('fa-pause');
+                    currentBtn.querySelector('i').classList.add('fa-play');
+                }
+            }
+
+            // Play new track
+            audio.play();
+            icon.classList.remove('fa-play');
+            icon.classList.add('fa-pause');
+            
+            // Update references
+            currentAudio = audio;
+            currentBtn = btn;
+        }
+    </script>
+</body>
+</html>
